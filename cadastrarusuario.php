@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-   if ($conn->connect_error) {
+    if ($conn->connect_error) {
         die("Erro na conexão com o banco de dados: " . $conn->connect_error);
     }
 
@@ -18,10 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    if (empty($password)) {
+        echo "Erro: Por favor, insira uma senha.";
+        exit;
+    }
 
     $stmt = $conn->prepare("INSERT INTO clientes (nome, email, username, password) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $nome, $email, $username, $hashed_password);
+    $stmt->bind_param("ssss", $nome, $email, $username, $password);
 
     if ($stmt->execute()) {
         echo "Usuário cadastrado com sucesso!";
