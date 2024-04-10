@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            width: 48%; 
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-right: 4px; 
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+      
+        .login-button {
+            background-color: #fff;
+            color: #333;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .login-button:hover {
+            background-color: #ddd;
+        }
+
+        .login-button img {
+            width: 20px; 
+            margin-right: 5px; 
+        }
+
+      
+        .register-button {
+            width: 48%; 
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .register-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Eventos</h1>
+        <a class="login-button" href="paginadelogin.html">
+            <img src="kisspng-login-computer-icons-download-avatar-icon-5b2cfbf8e8da45.3511932815296747449538.jpg" alt="Login"> Login
+        </a>
+    </header>
+
+    <div class="container">
+        <h1>Página de Login</h1>
+        <form action="processar_login.php" method="post">
+            <label for="username">Nome de usuário:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Login">
+         
+            <a href="paginadecadastro.html" class="register-button">Cadastrar-se</a>
+        </form>
+       
+    </div>
+
+    <footer>
+        <p>&copy; Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
