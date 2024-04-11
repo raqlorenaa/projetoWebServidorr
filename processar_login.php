@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows == 1) {
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
-        header("Location: paginausuario.php"); //aqui será criada uma página restrita do usuário aonde ele poderá realizar funções 
+        header("Location: paginausuario.html"); //aqui será criada uma página restrita do usuário aonde ele poderá realizar funções 
         exit;                                  //futuramente será alterado para que ao realizar login  automaticamente denomine admin ou usuario
     } else {
         echo "Usuário ou senha incorretos.";
