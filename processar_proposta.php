@@ -7,7 +7,7 @@ $bancoDeDados = 'phpteste';
 $conexao = new mysqli($host, $usuario, $senha, $bancoDeDados);
 
 if ($conexao->connect_error) {
-    die("Erro de conexão: " . $conexao->connect_error);
+    echo "<div class='feedback error'>Erro de conexão: " . $conexao->connect_error . "</div>";
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conexao->prepare($sql);
 
     if ($stmt === false) {
-        die("Erro ao preparar a declaração: " . $conexao->error);
+        echo "<div class='feedback error'>Erro ao preparar a declaração: " . $conexao->error . "</div>";
     }
 
     $stmt->bind_param("sssss", $nome, $descricao, $data, $local, $contato);
@@ -30,15 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado = $stmt->execute();
 
     if ($resultado === false) {
-        die("Erro ao executar a declaração: " . $stmt->error);
+        echo "<div class='feedback error'>Erro ao enviar os dados. Por favor, tente novamente.</div>";
+    } else {
+        echo "<div class='feedback success'><h2>Sucesso!</h2>";
+        echo "<p>A proposta de evento foi enviada com sucesso.</p></div>";
     }
 
     $stmt->close();
 
     $conexao->close();
-
-    echo "<h2>Sucesso!</h2>";
-    echo "<p>A proposta de evento foi enviada com sucesso.</p>";
 } else {
     echo "<p>Nenhum dado recebido. Por favor, envie o formulário.</p>";
 }

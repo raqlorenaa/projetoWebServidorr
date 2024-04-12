@@ -16,16 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT * FROM clientes WHERE username = ? AND password = ?");
+    $stmt = $conn->prepare("SELECT tipo FROM clientes WHERE username = ? AND password = ?");
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
-        header("Location: paginausuario.html"); //aqui será criada uma página restrita do usuário aonde ele poderá realizar funções 
-        exit;                                  //futuramente será alterado para que ao realizar login  automaticamente denomine admin ou usuario
+        $_SESSION['tipo'] = $row['tipo'];
+        if ($row['tipo'] == 'admin') {
+            header("Location: paginaadmin.html"); 
+        } else {
+            header("Location: paginausuario.html");
+        }
+        exit;
     } else {
         echo "Usuário ou senha incorretos.";
     }
@@ -33,4 +39,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 }
+
 ?>
