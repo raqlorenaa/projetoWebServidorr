@@ -1,3 +1,31 @@
+<?php
+session_start();
+
+if(isset($_POST['username']) && isset($_POST['password'])) {
+    include('conexao.php');
+
+    $username = $mysqli->real_escape_string($_POST['username']);
+    $password = $mysqli->real_escape_string($_POST['password']);
+
+    $sql = "SELECT * FROM usuarios WHERE username = '$username' AND password = '$password'";
+    $result = $mysqli->query($sql);
+
+    if($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['tipo'] = $row['tipo'];
+
+        header("Location: index.php"); // Redireciona de volta para index.php após o login
+        exit();
+    } else {
+        echo "Usuário ou senha incorretos";
+    }
+} else {
+    echo "Por favor, preencha todos os campos";
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -134,7 +162,7 @@
 
     <div class="container">
         <h1>Página de Login</h1>
-        <form action="processar_login.php" method="post">
+        <form action="paginalogin.php" method="post">
             <label for="username">Nome de usuário:</label>
             <input type="text" id="username" name="username" required>
 

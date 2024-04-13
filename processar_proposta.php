@@ -1,45 +1,31 @@
 <?php
-$host = 'localhost';
-$usuario = 'root';
-$senha = '';
-$bancoDeDados = 'phpteste';
-
-$conexao = new mysqli($host, $usuario, $senha, $bancoDeDados);
-
-if ($conexao->connect_error) {
-    echo "<div class='feedback error'>Erro de conexão: " . $conexao->connect_error . "</div>";
-}
+include ('conexao.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST["nome"];
-    $descricao = $_POST["descricao"];
-    $data = $_POST["data"];
-    $local = $_POST["local"];
-    $contato = $_POST["contato"];
-
-    $sql = "INSERT INTO proposta_evento (nome_evento, desc_evento, data_evento, local_evento, info_contato) VALUES (?, ?, ?, ?, ?)";
-
-    $stmt = $conexao->prepare($sql);
-
-    if ($stmt === false) {
-        echo "<div class='feedback error'>Erro ao preparar a declaração: " . $conexao->error . "</div>";
+    if ($mysqli->connect_error) {
+        die("Erro na conexão com o banco de dados: " . $mysqli->connect_error);
     }
 
-    $stmt->bind_param("sssss", $nome, $descricao, $data, $local, $contato);
+    $nome_evento = $_POST['nome'];
+    $desc_evento = $_POST['descricao'];
+    $data_evento = $_POST['data'];
+    $local_evento = $_POST['local'];
+    $info_contato = $_POST['contato'];
 
-    $resultado = $stmt->execute();
+    $stmt = $mysqli->prepare("INSERT INTO proposta_evento (nome_evento, desc_evento, data_evento, local_evento, info_contato) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $nome_evento, $desc_evento, $data_evento, $local_evento, $info_contato);
 
-    if ($resultado === false) {
-        echo "<div class='feedback error'>Erro ao enviar os dados. Por favor, tente novamente.</div>";
+    if ($stmt->execute()) {
+        echo "Proposta de evento enviada com sucesso!";
     } else {
-        echo "<div class='feedback success'><h2>Sucesso!</h2>";
-        echo "<p>A proposta de evento foi enviada com sucesso.</p></div>";
+        echo "Erro ao enviar proposta de evento: " . $stmt->error;
     }
 
     $stmt->close();
+    $mysqli->close();
 
-    $conexao->close();
 } else {
-    echo "<p>Nenhum dado recebido. Por favor, envie o formulário.</p>";
+    header("Location: paginadeproposta.html");
+    exit;
 }
 ?>
