@@ -172,7 +172,7 @@ $sql_eventos_query_exec = $mysqli->query($sql_eventos_query) or die($mysqli->err
         </table> 
 
         <div class="pagination">
-            <!-- Paginação aqui -->
+            
         </div>
     </div>
 
@@ -190,6 +190,7 @@ $sql_eventos_query_exec = $mysqli->query($sql_eventos_query) or die($mysqli->err
                 <th>Informações de Contato</th>
                 <th>Local do Evento</th>
                 <th>Nome do Evento</th>
+                <th>Status Proposta</th>
                 <th>Ação</th>
             </tr>
             <?php while ($eventos = $sql_eventos_query_exec->fetch_assoc()) { ?>
@@ -201,6 +202,7 @@ $sql_eventos_query_exec = $mysqli->query($sql_eventos_query) or die($mysqli->err
                     <td><?= $eventos['info_contato']; ?></td>
                     <td><?= $eventos['local_evento']; ?></td>
                     <td><?= $eventos['nome_evento']; ?></td>
+                    <td><?= $eventos['status_proposta']; ?></td>
                     <td>
                         <a href="editar_evento.php?idevento=<?= $eventos['idevento']; ?>">Editar</a>
                         <a href="paginaadmin.php?action_evento=remover_evento&idevento=<?= $eventos['idevento']; ?>" onclick="return confirm('Tem certeza que deseja remover este evento?')">Remover</a>
@@ -210,7 +212,7 @@ $sql_eventos_query_exec = $mysqli->query($sql_eventos_query) or die($mysqli->err
         </table> 
 
         <div class="pagination">
-            <!-- Paginação aqui -->
+            
         </div>
     </div>
 

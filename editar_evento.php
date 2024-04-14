@@ -9,16 +9,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['idevento'])) {
     $nova_info_contato = $_POST['nova_info_contato'];
     $novo_local_evento = $_POST['novo_local_evento'];
     $novo_nome_evento = $_POST['novo_nome_evento'];
+    $novo_status_proposta = $_POST['novo_status_proposta'];
 
-   
     $sql_atualizar_evento = "UPDATE proposta_evento SET 
                             data_evento = '$nova_data_evento', 
                             desc_evento = '$nova_desc_evento', 
                             idevento = '$novo_idevento', 
                             info_contato = '$nova_info_contato', 
                             local_evento = '$novo_local_evento', 
-                            nome_evento = '$novo_nome_evento' 
-                            WHERE id = $idevento";
+                            nome_evento = '$novo_nome_evento',
+                            status_proposta = '$novo_status_proposta' 
+                            WHERE idevento = $idevento";
 
     $resultado_evento = $mysqli->query($sql_atualizar_evento);
     if ($resultado_evento) {
@@ -28,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['idevento'])) {
         echo "Erro ao atualizar evento.";
     }
 }
-
 
 if (isset($_GET['idevento'])) {
     $idevento = $_GET['idevento'];
@@ -61,7 +61,8 @@ if (isset($_GET['idevento'])) {
         }
 
         .container {
-            width: 300px;
+            width: 80%;
+            max-width: 400px;
             margin: 50px auto;
             background-color: #fff;
             padding: 20px;
@@ -80,20 +81,14 @@ if (isset($_GET['idevento'])) {
         }
 
         input[type="text"],
-        input[type="date"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
+        input[type="date"],
         textarea {
             width: 100%;
             padding: 8px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 3px;
+            box-sizing: border-box; 
         }
 
         input[type="submit"] {
@@ -104,13 +99,21 @@ if (isset($_GET['idevento'])) {
             border: none;
             border-radius: 3px;
             cursor: pointer;
+            display: inline-block;
         }
 
         input[type="submit"]:hover {
             background-color: #45a049;
         }
 
-
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box; 
+        }
     </style>
 </head>
 
@@ -137,10 +140,16 @@ if (isset($_GET['idevento'])) {
             <label for="nome_evento">Nome do Evento:</label>
             <input type="text" id="nome_evento" name="novo_nome_evento" value="<?php echo $evento['nome_evento']; ?>" required>
 
+            <label for="status_proposta">Status da Proposta:</label>
+            <select id="status_proposta" name="novo_status_proposta" required>
+                <option value="esperando análise" <?php if ($evento['status_proposta'] == 'esperando análise') echo 'selected'; ?>>Esperando análise</option>
+                <option value="rejeitado" <?php if ($evento['status_proposta'] == 'rejeitado') echo 'selected'; ?>>Rejeitado</option>
+                <option value="em contato" <?php if ($evento['status_proposta'] == 'em contato') echo 'selected'; ?>>Em contato</option>
+            </select>
+
             <input type="submit" value="Salvar">
         </form>
     </div>
-
 </body>
 
 </html>
