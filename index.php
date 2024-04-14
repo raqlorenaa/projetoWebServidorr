@@ -60,15 +60,16 @@ if(isset($_SESSION['id'])) {
 <body>
     <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease"
         role="banner" class="navigation w-nav">
-        <div class="navigation-wrap"><a href="/" aria-current="page" class="logo-link w-nav-brand w--current"><img
+        <div class="navigation-wrap"><a href="index.php" aria-current="page" class="logo-link w-nav-brand w--current"><img
                     src="https://assets-global.website-files.com/661afabef13e333115fd9fd8/661afb55ca5426d279ee99b6_M.png"
                     width="108" alt="" class="logo-image" /></a>
             <div class="menu">
-                <nav role="navigation" class="navigation-items w-nav-menu"><a href="/about"
-                        class="navigation-item w-nav-link">Empresa</a><a href="/projects"
+                <nav role="navigation" class="navigation-items w-nav-menu"><a href="index.php"
+                        class="navigation-item w-nav-link">Empresa</a><a href="serviços.html"
                         class="navigation-item w-nav-link">SERVIÇOS</a><a href="/team"
-                        class="navigation-item w-nav-link">fOTOS</a><a href="/contact"
+                        class="navigation-item w-nav-link">fOTOS</a><a href="contato.html"
                         class="navigation-item w-nav-link">ConTATO</a></nav>
+                        
                 <div class="menu-button w-nav-button"><img
                         src="https://assets-global.website-files.com/661afabef13e333115fd9fd8/661afabff13e333115fda08d_menu-icon.png"
                         width="22" alt="" class="menu-icon" /></div>
