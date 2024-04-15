@@ -22,5 +22,38 @@ CREATE TABLE IF NOT EXISTS proposta_evento (
     data_evento DATE,
     local_evento VARCHAR(45),
     info_contato VARCHAR(100),
-    status_proposta ENUM('esperando análise', 'rejeitado', 'em contato')
+    status_proposta ENUM('esperando análise', 'rejeitado', 'em contato') DEFAULT 'esperando análise'
 );
+
+-- Inserção de exemplos na tabela "proposta_evento"
+INSERT INTO proposta_evento (desc_evento, data_evento, local_evento, info_contato, status_proposta)
+VALUES 
+('Casamento no campo', '2024-05-20', 'Fazenda São José', 'contato@exemplo.com', 'esperando análise'),
+('Conferência de tecnologia', '2024-06-15', 'Centro de Convenções', 'evento@empresa.com', 'em contato'),
+('Festa de Aniversário', '2024-07-10', 'Salão de Festas da Família', 'aniversariante@gmail.com', 'rejeitado'),
+('Seminário de Negócios', '2024-08-25', 'Hotel Lux', 'contato@negocios.com', 'esperando análise'),
+('Feira de Artesanato', '2024-09-05', 'Praça Central', 'artesao@exemplo.com', 'esperando análise'),
+('Workshop de Fotografia', '2024-10-15', 'Estúdio Fotográfico', 'contato@fotografia.com', 'esperando análise'),
+('Show ao ar livre', '2024-11-20', 'Parque Municipal', 'producao@show.com', 'em contato'),
+('Festival de Música', '2024-12-10', 'Centro Cultural', 'contato@musica.com', 'esperando análise'),
+('Convenção de Medicina', '2025-01-05', 'Centro de Convenções', 'medico@evento.com', 'em contato'),
+('Exposição de Arte', '2025-02-15', 'Galeria de Arte', 'contato@arte.com', 'esperando análise');
+
+-- Inserção de exemplos na tabela "usuarios"
+INSERT INTO usuarios (email, password, username, nome, tipo, idevento_fk)
+VALUES 
+('admin@mmeventos.com', 'admin', 'admin', 'Administrador', 'admin', NULL),
+('cliente@exemplo.com', 'cliente', 'cliente', 'Cliente Um', 'cliente', NULL),
+('cliente2@exemplo.com', 'senha_cliente2', 'cliente2', 'Cliente Dois', 'cliente', NULL),
+('cliente3@exemplo.com', 'senha_cliente3', 'cliente3', 'Cliente Três', 'cliente', NULL),
+('cliente4@exemplo.com', 'senha_cliente4', 'cliente4', 'Cliente Quatro', 'cliente', NULL),
+('cliente5@exemplo.com', 'senha_cliente5', 'cliente5', 'Cliente Cinco', 'cliente', NULL),
+('cliente6@exemplo.com', 'senha_cliente6', 'cliente6', 'Cliente Seis', 'cliente', NULL),
+('cliente7@exemplo.com', 'senha_cliente7', 'cliente7', 'Cliente Sete', 'cliente', NULL),
+('cliente8@exemplo.com', 'senha_cliente8', 'cliente8', 'Cliente Oito', 'cliente', NULL),
+('cliente9@exemplo.com', 'senha_cliente9', 'cliente9', 'Cliente Nove', 'cliente', NULL),
+('cliente10@exemplo.com', 'senha_cliente10', 'cliente10', 'Cliente Dez', 'cliente', NULL);
+
+
+
+
