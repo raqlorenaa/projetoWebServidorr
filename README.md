@@ -6,9 +6,10 @@ Integrantes: Raquel Lorena e Erasto Rodas
 2.Funcionalidades Faltantes: No cabeçalho as seções Serviços, Portifólio e Contato são ilustrativas.
 3.O projeto foi divido em Back-End (Erasto Rodas) e Front-End (Raquel Lorena), porém as alterações gerais e revisões foram realizadas pelos dois.
 
-________________________________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________
 
 Descrição da Aplicação:
+
 Este website é destinado a uma empresa de eventos e possui as seguintes funcionalidades:
 
 -Cadastro de Usuário:
@@ -24,5 +25,8 @@ Os clientes têm acesso a recursos específicos, incluindo:
 1. Envio de Proposta: Os clientes podem enviar propostas de eventos à empresa. Isso envolve fornecer detalhes sobre o evento planejado, como data desejada, local, tipo de evento e requisitos específicos.
 2. Login: Os clientes podem fazer login em suas contas para enviar uma proposta a empresa.
 3. Cadastro: Os visitantes que ainda não têm uma conta podem se cadastrar como clientes. Isso envolve preencher um formulário de registro com informações pessoais básicas.
+
+   ***Para entrar como admin utilize login:admin senha:admin
+   ***Para entrar como cliente utilize login:cliente senha:cliente
 
 
