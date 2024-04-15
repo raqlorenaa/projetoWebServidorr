@@ -1,8 +1,8 @@
 <?php
-include ('conexao.php');
+include('conexao.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   if ($mysqli->connect_error) {
+    if ($mysqli->connect_error) {
         die("Erro na conexão com o banco de dados: " . $mysqli->connect_error);
     }
 
@@ -12,24 +12,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     if (empty($password)) {
-        echo "Erro: Por favor, insira uma senha.";
-        exit;
-    }
-
-    $stmt = $mysqli->prepare("INSERT INTO usuarios (nome, email, username, password) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $nome, $email, $username, $password);
-
-    if ($stmt->execute()) {
-        echo "Usuário cadastrado com sucesso!";
+        echo "<div class='error'>Erro: Por favor, insira uma senha.</div>";
     } else {
-        echo "Erro ao cadastrar usuário: " . $stmt->error;
+        $stmt = $mysqli->prepare("INSERT INTO usuarios (nome, email, username, password) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $nome, $email, $username, $password);
+
+        if ($stmt->execute()) {
+            echo "Usuário cadastrado com sucesso!";
+        } else {
+            echo "Erro ao cadastrar usuário: " . $stmt->error;
+        }
+
+        $stmt->close();
+        $mysqli->close();
     }
-
-    $stmt->close();
-    $mysqli->close();
-
-} else {
-    header("Location: cadastrarusuario.php");
-    exit;
 }
 ?>
