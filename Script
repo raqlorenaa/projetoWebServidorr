@@ -1,0 +1,26 @@
+-- Criação do banco de dados
+CREATE DATABASE IF NOT EXISTS mmeventos;
+
+-- Seleciona o banco de dados
+USE mmeventos;
+
+-- Criação da tabela "usuarios"
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(45),
+    password VARCHAR(45),
+    username VARCHAR(45),
+    nome VARCHAR(45),
+    tipo ENUM('admin', 'cliente'),
+    idevento_fk INT(11)
+);
+
+-- Criação da tabela "proposta_evento" 
+CREATE TABLE IF NOT EXISTS proposta_evento (
+    idevento INT(11) AUTO_INCREMENT PRIMARY KEY,
+    desc_evento VARCHAR(200),
+    data_evento DATE,
+    local_evento VARCHAR(45),
+    info_contato VARCHAR(100),
+    status_proposta ENUM('esperando análise', 'rejeitado', 'em contato')
+);
