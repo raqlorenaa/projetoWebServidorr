@@ -21,7 +21,7 @@ if(isset($_SESSION['id'])) {
                 <input type="submit" name="logout" value="Sair" class="logout-button">
              </form>';
 } else {
-    $botao = '<a class="login-button" href="paginalogin.php">Login</a>';
+    $botao = '<a class="login-button" href="paginalogin.php">Faça o Login para nos enviar um Orçamento</a>';
     // Se não estiver logado, a variável $sair não é definida
     $sair = '';
 }

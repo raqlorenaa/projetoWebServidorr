@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Envio de Proposta de Evento</title>
     <style>
+        /* Estilos do segundo código */
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
@@ -14,7 +15,8 @@
         }
 
         .container {
-            width: 400px;
+            width: 80%; /* Ajuste a largura conforme necessário */
+            max-width: 600px; /* Adiciona uma largura máxima */
             margin: 100px auto;
             background-color: #fff;
             padding: 20px;
@@ -24,6 +26,15 @@
 
         h1 {
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        h1 img {
+            width: 40px;
+            margin-right: 10px;
         }
 
         label {
@@ -39,13 +50,13 @@
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 3px;
-            resize: none; /* Para evitar a redimensionamento da textarea */
+            resize: none;
         }
 
         input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background-color: #4CAF50;
+            background-color: #333;
             color: #fff;
             border: none;
             border-radius: 3px;
@@ -53,11 +64,11 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #555;
         }
 
         header {
-            background-color: #333;
+            background-color: #000;
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -66,8 +77,31 @@
             align-items: center;
         }
 
+        .back-button {
+            background-color: #fff;
+            color: #333;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #ddd;
+        }
+
+        .back-button img {
+            width: 20px;
+            margin-right: 5px;
+        }
+
         footer {
-            background-color: #333;
+            background-color: #000;
             color: #fff;
             text-align: center;
             padding: 20px;
@@ -80,10 +114,16 @@
 
 <body>
     <header>
-        <h1>Envio de Proposta de Evento</h1>
+        <a class="back-button" href="javascript:history.go(-1)">
+            <img src="voltar.png" alt="Voltar"> Voltar
+        </a>
+        <h1><img src="logo.png" alt="Logo"> </h1>
     </header>
 
     <div class="container">
+        <div style="text-align: center;">
+            <img src="evento.png" alt="" style="width: 20%;">
+        </div>
         <form action="processar_proposta.php" method="post">
             <label for="nome">Nome do Evento:</label>
             <input type="text" id="nome" name="nome" required>
@@ -104,9 +144,7 @@
         </form>
     </div>
 
-    <footer>
-        <p>&copy; Todos os direitos reservados.</p>
-    </footer>
+    
 </body>
 
 </html>
