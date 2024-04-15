@@ -34,6 +34,7 @@ if(isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MM Eventos</title>
     
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
     <style>
@@ -84,23 +85,24 @@ if(isset($_SESSION['id'])) {
         .proposta-button,
         .admin-button,
         .logout-button {
-            background-color: #fff;
-            color: #000;
-            border: none;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #000; 
             cursor: pointer;
             padding: 10px 20px;
             font-size: 16px;
-            border-radius: 25px;
+            border-radius: 5px; 
             transition: background-color 0.3s ease;
             text-decoration: none;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)); 
         }
 
         .login-button:hover,
         .proposta-button:hover,
         .admin-button:hover,
         .logout-button:hover {
-            background-color: #f2f2f2;
+            background-color: #555; /* Altera a cor de fundo ao passar o mouse */
         }
 
         .button-container {
@@ -109,7 +111,7 @@ if(isset($_SESSION['id'])) {
             justify-content: flex-end;
         }
 
-        /* Estilizando o formulário de contato */
+        
         .contact-form {
             max-width: 400px;
             margin: 0 auto;
@@ -149,9 +151,10 @@ if(isset($_SESSION['id'])) {
             border-color: #007bff;
         }
 
-        /* Estilizando o cabeçalho */
+        
         h1 {
             font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
             font-size: 36px;
             margin-bottom: 20px;
         }
@@ -162,7 +165,7 @@ if(isset($_SESSION['id'])) {
             margin-bottom: 10px;
         }
 
-        /* Estilizando o rodapé */
+        
         footer p {
             margin: 0;
         }
@@ -172,7 +175,7 @@ if(isset($_SESSION['id'])) {
             justify-content: center;
         }
 
-        /* Estilizando a galeria de imagens */
+        
         .gallery {
             display: flex;
             justify-content: space-around;
@@ -181,10 +184,10 @@ if(isset($_SESSION['id'])) {
         }
 
         .gallery img {
-            width: 300px;
-            height: 300px; /* Tornando as imagens quadradas */
+            width: 350px; 
+            height: 350px; 
             margin-bottom: 20px;
-            border-radius: 0; /* Removendo a borda arredondada */
+            border-radius: 0; 
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -193,7 +196,7 @@ if(isset($_SESSION['id'])) {
 
 <body>
 <header style="padding: 10px; text-align: center; position: relative;">
-    <img src="logo.png" alt="Logotipo" style="max-width: 300px; height: auto;">
+    <img src="logo.jpg" alt="Logotipo" style="max-width: 300px; height: auto;">
     <div class="button-container" style="position: absolute; top: 10px; right: 10px;">
         <?php echo $botao; ?>
         <?php echo $sair; ?> <!-- Adiciona o botão "Sair" -->
@@ -233,7 +236,7 @@ if(isset($_SESSION['id'])) {
             <img src="GettyImages-858790856.jpg" alt="Evento 1" class="event-image">
             <img src="producao-de-eventos.jpg" alt="Evento 2" class="event-image">
             <img src="sEGURO-eVENTOS-1.webp" alt="Evento 3" class="event-image">
-        </div>
+        </div>  
     </section>
 
     <section id="contato">
