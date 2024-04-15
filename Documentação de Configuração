@@ -1,0 +1,6 @@
+Instruções para Executar a Aplicação Corretamente:
+
+1. Instale o xampp.
+2. Clone o projeto do Git para a pasta HTDOCS.
+3. Execute o script.txt para criação do banco de dados.
+4. Abra localhost/projetoWebServidorr no navegador.
