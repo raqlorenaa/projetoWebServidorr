@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+// Inicializa as variáveis de erro
+$username_error = $password_error = $login_error = "";
+
 // Verifica se o botão de logout foi pressionado
 if(isset($_POST['logout'])) {
     session_unset(); // Limpa todas as variáveis de sessão
@@ -17,29 +20,39 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     $username = $mysqli->real_escape_string($_POST['username']);
     $password = $mysqli->real_escape_string($_POST['password']);
 
-    // Query para verificar se o usuário existe no banco de dados
-    $sql = "SELECT * FROM usuarios WHERE username = '$username' AND password = '$password'";
-    $result = $mysqli->query($sql);
-
-    // Verifica se há algum resultado retornado da query
-    if($result->num_rows == 1) {
-        $row = $result->fetch_assoc();
-
-        // Define as variáveis de sessão
-        $_SESSION['id'] = $row['id'];
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['tipo'] = $row['tipo'];
-
-        // Redireciona para a página inicial após o login bem-sucedido
-        header("Location: index.php");
-        exit();
-    } else {
-        // Exibe uma mensagem de erro caso o usuário não seja encontrado
-        echo "Usuário ou senha incorretos";
+    // Verifica se o campo de nome de usuário está vazio
+    if(empty($username)) {
+        $username_error = "Por favor, digite seu nome de usuário";
     }
-} else {
-    // Exibe uma mensagem caso os campos de login não tenham sido preenchidos
-    echo "Por favor, preencha todos os campos";
+
+    // Verifica se o campo de senha está vazio
+    if(empty($password)) {
+        $password_error = "Por favor, digite sua senha";
+    }
+
+    // Se ambos os campos estiverem preenchidos, tenta fazer o login
+    if(!empty($username) && !empty($password)) {
+        // Query para verificar se o usuário existe no banco de dados
+        $sql = "SELECT * FROM usuarios WHERE username = '$username' AND password = '$password'";
+        $result = $mysqli->query($sql);
+
+        // Verifica se há algum resultado retornado da query
+        if($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+
+            // Define as variáveis de sessão
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['tipo'] = $row['tipo'];
+
+            // Redireciona para a página inicial após o login bem-sucedido
+            header("Location: index.php");
+            exit();
+        } else {
+            // Exibe uma mensagem de erro caso o usuário não seja encontrado
+            $login_error = "Usuário ou senha incorretos!";
+        }
+    }
 }
 ?>
 
@@ -162,6 +175,11 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
         .register-button:hover {
             background-color: #45a049;
         }
+
+        .error-message {
+            margin-bottom: 10px;
+            color: red;
+        }
     </style>
 </head>
 
@@ -180,19 +198,20 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
         <form action="paginalogin.php" method="post">
             <label for="username">Login</label>
             <input type="text" id="username" name="username" required>
+            <span class="error-message"><?php echo $username_error; ?></span>
 
             <label for="password">Senha</label>
             <input type="password" id="password" name="password" required>
+            <span class="error-message"><?php echo $password_error; ?></span>
+
+            <span class="error-message"><?php echo $login_error; ?></span>
 
             <input type="submit" value="Login">
-
             <a href="paginadecadastro.html" class="register-button">Cadastrar-se</a>
         </form>
     </div>
 
-    <footer>
-        <p>&copy; Todos os direitos reservados.</p>
-    </footer>
+
 </body>
 
 </html>
