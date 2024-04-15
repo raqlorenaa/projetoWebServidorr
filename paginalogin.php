@@ -1,31 +1,3 @@
-<?php
-session_start();
-
-if(isset($_POST['username']) && isset($_POST['password'])) {
-    include('conexao.php');
-
-    $username = $mysqli->real_escape_string($_POST['username']);
-    $password = $mysqli->real_escape_string($_POST['password']);
-
-    $sql = "SELECT * FROM usuarios WHERE username = '$username' AND password = '$password'";
-    $result = $mysqli->query($sql);
-
-    if($result->num_rows == 1) {
-        $row = $result->fetch_assoc();
-
-        $_SESSION['id'] = $row['id'];
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['tipo'] = $row['tipo'];
-
-        header("Location: index.php"); // Redireciona de volta para index.php após o login
-        exit();
-    } else {
-        echo "Usuário ou senha incorretos";
-    }
-} else {
-    echo "Por favor, preencha todos os campos";
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -43,7 +15,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 
         .container {
             width: 300px;
-            margin: 100px auto;
+            margin: 50px auto 0; /* Ajusta a margem superior */
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
@@ -52,6 +24,15 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 
         h1 {
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+        }
+
+        h1 img {
+            width: 40px; /* Define o tamanho do logo */
+            margin-right: 10px; /* Adiciona espaço entre o logo e o texto */
         }
 
         label {
@@ -69,14 +50,14 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
         }
 
         input[type="submit"] {
-            width: 48%; 
+            width: 48%;
             padding: 10px;
             background-color: #333;
             color: #fff;
             border: none;
             border-radius: 3px;
             cursor: pointer;
-            margin-right: 4px; 
+            margin-right: 4px;
         }
 
         input[type="submit"]:hover {
@@ -88,9 +69,8 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
             margin-bottom: 10px;
         }
 
-        
         header {
-            background-color: #333;
+            background-color: #000;
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -99,18 +79,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
             align-items: center;
         }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-      
-        .login-button {
+        .back-button {
             background-color: #fff;
             color: #333;
             border: none;
@@ -124,18 +93,17 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
             text-decoration: none;
         }
 
-        .login-button:hover {
+        .back-button:hover {
             background-color: #ddd;
         }
 
-        .login-button img {
-            width: 20px; 
-            margin-right: 5px; 
+        .back-button img {
+            width: 20px;
+            margin-right: 5px;
         }
 
-      
         .register-button {
-            width: 48%; 
+            width: 48%;
             padding: 10px;
             background-color: #4CAF50;
             color: #fff;
@@ -149,36 +117,42 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
         .register-button:hover {
             background-color: #45a049;
         }
+
+        
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Eventos</h1>
-        <a class="login-button" href="paginadelogin.html">
-            <img src="kisspng-login-computer-icons-download-avatar-icon-5b2cfbf8e8da45.3511932815296747449538.jpg" alt="Login"> Login
+        <a class="back-button" href="javascript:history.go(-1)">
+            <img src="voltar.png" alt="Voltar"> Voltar
         </a>
+        <h1><img src="logo.png" alt="Logo"> </h1>
     </header>
 
+    
+    
     <div class="container">
-        <h1>Página de Login</h1>
-        <form action="paginalogin.php" method="post">
-            <label for="username">Nome de usuário:</label>
-            <input type="text" id="username" name="username" required>
+    <div style="text-align: center;">
+        <img src="login.png" alt="" style="width: 20%;">
+    </div>
+    <form action="paginalogin.php" method="post">
+        <label for="username">Login</label>
+        <input type="text" id="username" name="username" required>
 
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" required>
 
-            <input type="submit" value="Login">
-         
-            <a href="paginadecadastro.html" class="register-button">Cadastrar-se</a>
-        </form>
+        <input type="submit" value="Login">
+     
+        <a href="paginadecadastro.html" class="register-button">Cadastrar-se</a>
+    </form>
+</div>
+
+</div>
+
        
     </div>
-
-    <footer>
-        <p>&copy; Todos os direitos reservados.</p>
-    </footer>
 </body>
 
 </html>

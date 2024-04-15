@@ -31,7 +31,8 @@ if(isset($_SESSION['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos Corporativos</title>
+    <title>MM Eventos</title>
+    
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
     <style>
@@ -164,6 +165,17 @@ if(isset($_SESSION['id'])) {
         footer p {
             margin: 0;
         }
+
+        #container-servicos {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+        
     </style>
 </head>
 
@@ -185,19 +197,25 @@ if(isset($_SESSION['id'])) {
         <a href="#contato">Contato</a>
     </nav>
     <section id="sobre">
-        <h2>Sobre Nós</h2>
-        <p>Somos especialistas na organização de eventos corporativos que proporcionam experiências inesquecíveis para seus colaboradores e clientes</p>
-    </section>
-    <section id="servicos">
-        <h2>Serviços</h2>
-        <p>Oferecemos uma ampla gama de serviços, incluindo:</p>
-        <ul>
-            <li>Eventos de Lançamento</li>
-            <li>Conferências e Seminários</li>
-            <li>Eventos de Networking</li>
-            <li>Workshops e Treinamentos</li>
-        </ul>
-    </section>
+    <h2>Sobre Nós</h2>
+    <p>Somos uma equipe apaixonada por criar experiências memoráveis ​​em eventos corporativos. Com anos de experiência no setor, dedicamo-nos a superar as expectativas de nossos clientes, proporcionando eventos que deixam uma impressão duradoura.</p>
+    <p>Nossa missão é oferecer soluções criativas e personalizadas que atendam às necessidades exclusivas de cada cliente. Valorizamos a integridade, a inovação e a excelência em tudo o que fazemos.</p>
+</section>
+
+<section id="servicos">
+    <h2>Serviços</h2>
+    <p>Oferecemos uma ampla gama de serviços personalizados para atender às suas necessidades específicas. Nossos serviços incluem:</p>
+    <ul style="list-style: none; padding-left: 0;">
+        <li><strong>Eventos de Lançamento:</strong> Desde grandes lançamentos de produtos até eventos exclusivos para a imprensa, ajudamos você a impressionar seus convidados.</li>
+        <li><strong>Conferências e Seminários:</strong> Organizamos eventos educacionais e inspiradores que promovem o aprendizado e a colaboração.</li>
+        <li><strong>Eventos de Networking:</strong> Criamos ambientes propícios para conectar pessoas e promover relacionamentos profissionais.</li>
+        <li><strong>Workshops e Treinamentos:</strong> Desenvolvemos programas de treinamento sob medida para capacitar sua equipe e alcançar seus objetivos empresariais.</li>
+        <li><strong>Serviços de Catering:</strong> Parcerias com os melhores fornecedores para oferecer uma experiência gastronômica excepcional em seus eventos.</li>
+        <li><strong>Gestão de Logística:</strong> Cuidamos de todos os detalhes, desde a reserva de locais até a coordenação de transporte e hospedagem, para garantir que seu evento seja um sucesso.</li>
+    </ul>
+</section>
+
+
     <section id="portfolio">
         <h2>Portfolio</h2>
         <p>Confira alguns dos eventos corporativos que organizamos:</p>
