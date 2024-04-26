@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] !== 'admin') {
     $_SESSION['error_message'] = "Acesso não autorizado. Faça login como administrador para acessar esta página.";
-    header("Location: index.php");
+    header("Location: view/view.index.php");
     exit();
 }
 
@@ -14,7 +14,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'remover' && isset($_GET['id']
     $sql_remover_usuario = "DELETE FROM usuarios WHERE id = $id";
     $resultado_remover_usuario = $mysqli->query($sql_remover_usuario);
     if ($resultado_remover_usuario) {
-        header("Location: paginaadmin.php");
+        header("Location: ../paginaadmin.php");
         exit;
     } else {
         echo "Erro ao remover usuário.";
@@ -26,7 +26,7 @@ if (isset($_GET['action_evento']) && $_GET['action_evento'] === 'remover_evento'
     $sql_remover_evento = "DELETE FROM proposta_evento WHERE idevento = $idevento";
     $resultado_remover_evento = $mysqli->query($sql_remover_evento);
     if ($resultado_remover_evento) {
-        header("Location: paginaadmin.php");
+        header("Location: ../paginaadmin.php");
         exit;
     } else {
         echo "Erro ao remover evento.";
@@ -165,7 +165,7 @@ $sql_eventos_query_exec = $mysqli->query($sql_eventos_query) or die($mysqli->err
                     <td><?= $clientes['tipo']; ?></td>
                     <td>
                         <a href="editar_usuario.php?id=<?= $clientes['id']; ?>">Editar</a>
-                        <a href="paginaadmin.php?action=remover&id=<?= $clientes['id']; ?>" onclick="return confirm('Tem certeza que deseja remover este usuário?')">Remover</a>
+                        <a href="../paginaadmin.php?action=remover&id=<?= $clientes['id']; ?>" onclick="return confirm('Tem certeza que deseja remover este usuário?')">Remover</a>
                     </td>
                 </tr>
             <?php } ?>
@@ -205,7 +205,7 @@ $sql_eventos_query_exec = $mysqli->query($sql_eventos_query) or die($mysqli->err
                     <td><?= $eventos['status_proposta']; ?></td>
                     <td>
                         <a href="editar_evento.php?idevento=<?= $eventos['idevento']; ?>">Editar</a>
-                        <a href="paginaadmin.php?action_evento=remover_evento&idevento=<?= $eventos['idevento']; ?>" onclick="return confirm('Tem certeza que deseja remover este evento?')">Remover</a>
+                        <a href="../paginaadmin.php?action_evento=remover_evento&idevento=<?= $eventos['idevento']; ?>" onclick="return confirm('Tem certeza que deseja remover este evento?')">Remover</a>
                     </td>
                 </tr>
             <?php } ?>
