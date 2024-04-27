@@ -165,7 +165,7 @@ if(isset($_GET['error'])) {
             <span class="error-message"><?php echo $login_error; ?></span>
 
             <input type="submit" value="Login">
-            <a href="paginadecadastro.html" class="register-button">Cadastrar-se</a>
+            <a href="../view/view.cadastro.html" class="register-button">Cadastrar-se</a>
         </form>
     </div>
 </body>

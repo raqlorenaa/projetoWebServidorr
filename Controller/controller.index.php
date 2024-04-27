@@ -14,7 +14,7 @@ if(isset($_SESSION['id'])) {
     if($_SESSION['tipo'] == 'admin') {
         $botao = '<a class="admin-button" href="../paginaadmin.php">Página Admin</a>';
     } else {
-        $botao = '<a class="proposta-button" href="../paginausuario.html">Enviar Proposta</a>';
+        $botao = '<a class="proposta-button" href="../view/view.proposta.html">Enviar Proposta</a>';
     }
     // Adiciona o botão "Sair"
     $sair = '<form action="" method="post">
