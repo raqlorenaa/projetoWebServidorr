@@ -12,7 +12,7 @@ if(isset($_POST['logout'])) {
 // Definir variáveis $botao e $sair aqui
 if(isset($_SESSION['id'])) {
     if($_SESSION['tipo'] == 'admin') {
-        $botao = '<a class="admin-button" href="../paginaadmin.php">Página Admin</a>';
+        $botao = '<a class="admin-button" href="view.paginaadm.php">Página Admin</a>';
     } else {
         $botao = '<a class="proposta-button" href="../view/view.proposta.html">Enviar Proposta</a>';
     }
