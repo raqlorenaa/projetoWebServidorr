@@ -17,7 +17,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 function logout() {
     session_unset(); // Limpa todas as variáveis de sessão
     session_destroy(); // Destrói a sessão
-    header("Location: ../view.index.php"); // Redireciona de volta para a página inicial
+    header("Location: ../index_view.php"); // Redireciona de volta para a página inicial
     exit();
 }
 
@@ -42,7 +42,7 @@ function process_login($username, $password) {
         $_SESSION['tipo'] = $row['tipo'];
 
         // Redireciona para a página inicial após o login bem-sucedido
-        header("Location: ../view/view.index.php");
+        header("Location: ../view/index_view.php");
         exit();
         
     }  else {
