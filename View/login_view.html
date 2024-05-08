@@ -1,24 +1,8 @@
-<?php
-session_start();
 
-// Definir variáveis de erro como vazio inicialmente
-$username_error = "";
-$password_error = "";
-$login_error = "";
-
-// Verificar se há erro de login passado pela URL
-if(isset($_GET['error'])) {
-    $login_error = $_GET['error'];
-}
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
-
-
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Login</title>
     <style>
@@ -140,10 +124,10 @@ if(isset($_GET['error'])) {
         }
     </style>
 </head>
-
 <body>
+<?php include('../controller/login_controller.php'); ?>
     <header>
-    <a class="back-button" href="javascript:history.go(-1)">
+        <a class="back-button" href="javascript:history.go(-1)">
             <img src="voltar.png" alt="Voltar"> Voltar
         </a>
         <h1><img src="logo.png" alt="Logo"> </h1>
@@ -151,9 +135,9 @@ if(isset($_GET['error'])) {
 
     <div class="container">
         <div style="text-align: center;">
-        <img src="login.png" alt="" style="width: 20%;">
+            <img src="login.png" alt="" style="width: 20%;">
         </div>
-        <form action="../controller/controller.login.php" method="post">
+        <form action="../controller/login_controller.php" method="post">
             <label for="username">Login</label>
             <input type="text" id="username" name="username" required>
             <span class="error-message"><?php echo $username_error; ?></span>
@@ -165,10 +149,8 @@ if(isset($_GET['error'])) {
             <span class="error-message"><?php echo $login_error; ?></span>
 
             <input type="submit" value="Login">
-            <a href="../view/view.cadastro.html" class="register-button">Cadastrar-se</a>
-        </form>
+            <a href="../view/formulario_cadastro.html" class="register-button">Cadastrar-se</a>
+        </form>  
     </div>
 </body>
-
-
 </html>

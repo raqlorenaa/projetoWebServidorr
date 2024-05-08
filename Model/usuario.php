@@ -28,6 +28,8 @@ class Usuario {
             $stmt->close();
         }
     }
-}
 
+
+    
+}
 ?>

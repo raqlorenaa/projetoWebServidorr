@@ -2,17 +2,18 @@
 require_once '../model/sessao.php';
 session_start();
 
+
 class ControllerSessao {
     public function renderizarBotoes() {
         $botao = '';
         if (Sessao::estaLogado()) {
             if ($_SESSION['tipo'] == 'admin') {
-                $botao = '<a class="admin-button" href="view.paginaadm.php">Página Admin</a>';
+                $botao = '<a class="admin-button" href="../view/view.paginaadm.php">Página Admin</a>';
             } else {
-                $botao = '<a class="proposta-button" href="../view/view.proposta.html">Enviar Proposta</a>';
+                $botao = '<a class="proposta-button" href="../view/proposta_view.html">Enviar Proposta</a>';
             }
         } else {
-            $botao = '<a class="login-button" href="../view/view.login.php">Faça o Login para nos enviar um Orçamento</a>';
+            $botao = '<a class="login-button" href="../view/login_view.html">Faça o Login para nos enviar um Orçamento</a>';
         }
         return $botao;
     }
