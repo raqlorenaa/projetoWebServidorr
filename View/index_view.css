@@ -1,5 +1,3 @@
-
-        
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #fff;
@@ -43,35 +41,50 @@ footer {
     bottom: 0;
 }
 
+/* Estilo para todos os botões */
 .login-button,
 .proposta-button,
 .admin-button,
 .logout-button {
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #000; 
-    cursor: pointer;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px; 
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)); 
+    background-color: #000; /* Cor de fundo azul */
+    color: #fff; /* Texto branco */
+    border: none; /* Sem borda padrão */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    padding: 15px 25px; /* Espaçamento interno */
+    font-size: 18px; /* Tamanho da fonte */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Transição suave de cor de fundo */
+    text-decoration: none; /* Sem sublinhado */
+    font-family: 'Montserrat', sans-serif; /* Fonte */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
+/* Estilo de hover para todos os botões */
 .login-button:hover,
 .proposta-button:hover,
 .admin-button:hover,
 .logout-button:hover {
-    background-color: #555; /* Altera a cor de fundo ao passar o mouse */
+    background-color: #322e2e; /* Cor de fundo mais escuro ao passar o mouse */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada ao passar o mouse */
 }
 
+/* Adicionando um efeito de elevação ao clicar */
+.login-button:active,
+.proposta-button:active,
+.admin-button:active,
+.logout-button:active {
+    transform: translateY(2px); /* Movimenta o botão para cima quando clicado */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Aumenta a sombra para dar a sensação de elevação */
+}
 .button-container {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre os botões */
+    flex-wrap: wrap; /* Permite que os botões quebram a linha se necessário */
+    padding: 20px; /* Espaçamento interno do container */
+    margin-top: 20px; /* Espaçamento acima do container */
 }
+
 
 
 .contact-form {
@@ -113,7 +126,6 @@ footer {
     border-color: #007bff;
 }
 
-
 h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
@@ -127,7 +139,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-
 footer p {
     margin: 0;
 }
@@ -136,7 +147,6 @@ footer p {
     display: flex;
     justify-content: center;
 }
-
 
 .gallery {
     display: flex;
@@ -152,5 +162,3 @@ footer p {
     border-radius: 0; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-

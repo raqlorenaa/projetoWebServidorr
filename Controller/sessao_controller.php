@@ -13,7 +13,7 @@ class ControllerSessao {
                 $botao = '<a class="proposta-button" href="../view/proposta_view.html">Enviar Proposta</a>';
             }
         } else {
-            $botao = '<a class="login-button" href="../view/login_view.html">Faça o Login para nos enviar um Orçamento</a>';
+            $botao = '<a class="login-button" href="../view/login_view.html">Faça o Login para nos enviar um Orçamento!</a>';
         }
         return $botao;
     }

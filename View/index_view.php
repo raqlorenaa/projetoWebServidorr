@@ -20,16 +20,12 @@ $formularioLogout = $controllerSessao->renderizarFormularioLogout();
     <title>Página Inicial</title>
 </head>
 <body>
-    <div>
-        <?php echo $botoes; ?>
+    <div class="button-container">
+        <?php echo $botoes;?>
+        <?php echo $formularioLogout;?>
     </div>
-    <div>
-        <?php echo $formularioLogout; ?>
-    </div>
-
-    <!-- Insira aqui o código HTML -->
     <header style="padding: 10px; text-align: center; position: relative;">
-        <img src="logo.jpg" alt="Logotipo" style="max-width: 300px; height: auto;">
+        <img src="../view/imgs/logo.jpg" alt="Logotipo" style="max-width: 300px; height: auto;">
         <div class="button-container" style="position: absolute; top: 10px; right: 10px;">
         <link rel="stylesheet" type="text/css" href="../view/index_view.css">
         </div>
@@ -65,9 +61,9 @@ $formularioLogout = $controllerSessao->renderizarFormularioLogout();
         <h2>Portfolio</h2>
         <p>Confira alguns dos eventos corporativos que organizamos:</p>
         <div class="gallery">
-            <img src="GettyImages-858790856.jpg" alt="Evento 1" class="event-image">
-            <img src="producao-de-eventos.jpg" alt="Evento 2" class="event-image">
-            <img src="sEGURO-eVENTOS-1.webp" alt="Evento 3" class="event-image">
+            <img src="../view/imgs/GettyImages-858790856.jpg" alt="Evento 1" class="event-image">
+            <img src="../view/imgs/producao-de-eventos.jpg" alt="Evento 2" class="event-image">
+            <img src="../view/imgs/sEGURO-eVENTOS-1.webp" alt="Evento 3" class="event-image">
         </div>  
     </section>
 
