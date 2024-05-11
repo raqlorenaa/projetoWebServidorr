@@ -1,5 +1,7 @@
 <?php 
-include('../controller/controller.editar_evento.php');
+/*projetowebservidorr/View/view.editar_evento.php  */
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

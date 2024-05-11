@@ -1,4 +1,8 @@
 <?php
+namespace App\Model;
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
+
 
 class Usuario {
     private $mysqli;

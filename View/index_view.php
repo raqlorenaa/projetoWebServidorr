@@ -1,13 +1,12 @@
 <?php
-require_once '../controller/sessao_controller.php';
+use App\Controller\ControllerSessao;
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
 
-require_once '../conexao.php';
 
-
-
+session_start(); // Inicie a sessão aqui
 
 $controllerSessao = new ControllerSessao();
-
 
 $botoes = $controllerSessao->renderizarBotoes();
 $formularioLogout = $controllerSessao->renderizarFormularioLogout();
@@ -21,8 +20,8 @@ $formularioLogout = $controllerSessao->renderizarFormularioLogout();
 </head>
 <body>
     <div class="button-container">
-        <?php echo $botoes;?>
-        <?php echo $formularioLogout;?>
+        <?php echo $botoes; ?>
+        <?php echo $formularioLogout; ?>
     </div>
     <header style="padding: 10px; text-align: center; position: relative;">
         <img src="../view/imgs/logo.jpg" alt="Logotipo" style="max-width: 300px; height: auto;">
@@ -85,5 +84,4 @@ $formularioLogout = $controllerSessao->renderizarFormularioLogout();
     </footer>
 
 </body>
-
 </html>

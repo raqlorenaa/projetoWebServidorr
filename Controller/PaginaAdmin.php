@@ -1,4 +1,5 @@
 <?php
+
 class PaginaAdmin {
     private $usuarios;
     private $eventos;

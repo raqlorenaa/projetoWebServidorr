@@ -1,7 +1,11 @@
 <?php
 
-include '../conexao.php';
-require_once '../model/PropostaEventoModel.php';
+namespace App\Controller;
+
+use App\Model\PropostaEventoModel;
+
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
 
 
 class PropostaEventoController {

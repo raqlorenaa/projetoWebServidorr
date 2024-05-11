@@ -1,6 +1,12 @@
 <?php
-include ('../conexao.php');
-include ('../model/proposta.php');
+
+namespace App\Controller;
+
+use App\Model\Proposta;
+
+
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $model = new Proposta($mysqli);

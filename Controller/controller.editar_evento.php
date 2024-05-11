@@ -1,5 +1,12 @@
 <?php 
-include('../conexao.php');
+
+namespace App\Controller;
+
+use App\Model\PropostaEvento; 
+
+
+require __DIR__ . '/../vendor/autoload.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['idevento'])) {
     $idevento = $_POST['idevento'];

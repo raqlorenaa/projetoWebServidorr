@@ -1,5 +1,12 @@
 <?php 
-include('../conexao.php');
+
+namespace App\Controller;
+
+use App\Model\Usuario; 
+
+
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
     $id = $_POST['id'];

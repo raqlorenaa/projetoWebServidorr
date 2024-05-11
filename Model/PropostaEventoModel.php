@@ -1,6 +1,9 @@
 <?php
-// PropostaEventoModel.php
-include_once '../conexao.php';
+namespace App\Model;
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
+
+
 
 class PropostaEventoModel {
     private $mysqli;

@@ -1,10 +1,16 @@
 <?php
-require_once '../model/sessao.php';
-session_start();
 
+namespace App\Controller;
 
-class ControllerSessao {
-    public function renderizarBotoes() {
+use App\Model\Sessao;
+
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
+
+class ControllerSessao
+{
+    public function renderizarBotoes()
+    {
         $botao = '';
         if (Sessao::estaLogado()) {
             if ($_SESSION['tipo'] == 'admin') {
@@ -18,16 +24,14 @@ class ControllerSessao {
         return $botao;
     }
 
-    public function renderizarFormularioLogout() {
+    public function renderizarFormularioLogout()
+    {
         $sair = '';
         if (Sessao::estaLogado()) {
-            $sair = '<form action="" method="post">
-                        <input type="submit" name="logout" value="Sair" class="logout-button">
-                    </form>';
-
+            $sair = '<form action="" method="post"> <input type="submit" name="logout" value="Sair" class="logout-button"> </form>';
             // Verifica se o botão de logout foi pressionado
-            if(isset($_POST['logout'])) {
-                Sessao::encerrarSessao(); // Encerra a sessão
+            if (isset($_POST['logout'])) {
+                Sessao::encerrarSessao();
                 header("Location: ../View/index_view.php"); // Redireciona de volta para a página inicial
                 exit();
             }
@@ -35,4 +39,3 @@ class ControllerSessao {
         return $sair;
     }
 }
-?>

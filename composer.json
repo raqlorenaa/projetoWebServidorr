@@ -1,0 +1,16 @@
+{
+    "name": "erast/projeto-web-servidorr",
+    "type": "mvc",
+    "authors": [
+        {
+            "name": "erastogodi",
+            "email": "erastorodas@alunos.utfpr.edu.br"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": ""
+        }
+    },
+    "require": {}
+}

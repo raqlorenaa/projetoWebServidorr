@@ -1,6 +1,12 @@
 <?php
-require_once '../model/login.php';
-require_once '../conexao.php';
+
+namespace App\Controller;
+
+use App\Model\Login;
+
+
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
 
 $username_error = ""; // Defina as variáveis com valores padrão vazios
 $password_error = "";

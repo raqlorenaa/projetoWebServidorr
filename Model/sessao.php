@@ -1,4 +1,7 @@
 <?php
+namespace App\Model;
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
 class Sessao {
     public static function iniciarSessao() {
         session_start();

@@ -1,5 +1,8 @@
 <?php
-// ../model/proposta.php
+namespace App\Model;
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
+
 
 class Proposta {
     private $mysqli;

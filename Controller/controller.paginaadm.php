@@ -1,5 +1,13 @@
 <?php 
+
+namespace App\Controller;
+
+
+
 session_start();
+
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../conexao.php';
 
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] !== 'admin') {
     $_SESSION['error_message'] = "Acesso não autorizado. Faça login como administrador para acessar esta página.";
