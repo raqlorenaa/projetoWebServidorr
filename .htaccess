@@ -10,5 +10,5 @@ RewriteRule ^mundomagicoeventos/?$ view/index_view.php [NC,L]
 RewriteRule ^paginadelogin/?$ view/login_view.html [NC,L]
 RewriteRule ^paginadeproposta/?$ view/proposta_view.html [NC,L]
 RewriteRule ^paginadecadastro/?$ view/formulario_cadastro.html [NC,L]
-RewriteRule ^paginadeadmin/?$ view/pagina_adm_view.php [NC,L]
+RewriteRule ^paginadeadmin/?$ view/gerenciarUsuarios.php [NC,L]
 
