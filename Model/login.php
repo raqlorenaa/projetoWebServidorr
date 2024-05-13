@@ -27,12 +27,12 @@ class Login {
             $_SESSION['username'] = $row['username'];
             $_SESSION['tipo'] = $row['tipo'];
 
-            header("Location: ../view/index_view.php");
+            header("Location: /projetoWebServidorr/mundomagicoeventos");
             exit();
         } else {
             session_start();
             $_SESSION['login_error'] = "Usuário ou senha incorretos!";
-            header("Location: ../view/view.login.php");
+            header("Location: /projetoWebServidorr/paginadelogin");
             exit();
         }
     }
@@ -41,7 +41,7 @@ class Login {
         session_start();
         session_unset();
         session_destroy();
-        header("Location: ../index_view.php");
+        header("Location: /projetoWebServidorr/mundomagicoeventos");
         exit();
     }
 

@@ -12,16 +12,19 @@ class ControllerSessao
     public function renderizarBotoes()
     {
         $botao = '';
-        if (Sessao::estaLogado()) {
-            if ($_SESSION['tipo'] == 'admin') {
-                $botao = '<a class="admin-button" href="../view/view.paginaadm.php">Página Admin</a>';
-            } else {
-                $botao = '<a class="proposta-button" href="../view/proposta_view.html">Enviar Proposta</a>';
-            }
-        } else {
-            $botao = '<a class="login-button" href="../view/login_view.html">Faça o Login para nos enviar um Orçamento!</a>';
-        }
-        return $botao;
+if (Sessao::estaLogado()) {
+    if ($_SESSION['tipo'] == 'admin') {
+        // Mudança para usar URL amigável
+        $botao = '<a class="admin-button" href="/projetoWebServidorr/paginadeadmin">Página Admin</a>';
+    } else {
+        // Mudança para usar URL amigável
+        $botao = '<a class="proposta-button" href="/projetoWebServidorr/paginadeproposta">Enviar Proposta</a>';
+    }
+} else {
+    // Mudança para usar URL amigável
+    $botao = '<a class="login-button" href="/projetoWebServidorr/paginadelogin">Faça o Login para nos enviar um Orçamento!</a>';
+}
+return $botao;
     }
 
     public function renderizarFormularioLogout()
@@ -32,7 +35,7 @@ class ControllerSessao
             // Verifica se o botão de logout foi pressionado
             if (isset($_POST['logout'])) {
                 Sessao::encerrarSessao();
-                header("Location: ../View/index_view.php"); // Redireciona de volta para a página inicial
+                header("Location: /projetoWebServidorr/index.php"); // Caminho absoluto
                 exit();
             }
         }

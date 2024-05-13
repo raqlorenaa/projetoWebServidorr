@@ -3,7 +3,6 @@ use App\Controller\ControllerSessao;
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../conexao.php';
 
-
 session_start(); // Inicie a sessão aqui
 
 $controllerSessao = new ControllerSessao();
@@ -17,16 +16,14 @@ $formularioLogout = $controllerSessao->renderizarFormularioLogout();
 <head>
     <meta charset="UTF-8">
     <title>Página Inicial</title>
+    <link rel="stylesheet" type="text/css" href="/projetoWebServidorr/view/index_view.css">
 </head>
 <body>
-    <div class="button-container">
-        <?php echo $botoes; ?>
-        <?php echo $formularioLogout; ?>
-    </div>
     <header style="padding: 10px; text-align: center; position: relative;">
-        <img src="../view/imgs/logo.jpg" alt="Logotipo" style="max-width: 300px; height: auto;">
+        <img src="/projetoWebServidorr/view/imgs/logo.jpg" alt="Logotipo" style="max-width: 300px; height: auto;">
         <div class="button-container" style="position: absolute; top: 10px; right: 10px;">
-        <link rel="stylesheet" type="text/css" href="../view/index_view.css">
+            <?php echo $botoes; ?>
+            <?php echo $formularioLogout; ?>
         </div>
     </header>
 
@@ -45,7 +42,6 @@ $formularioLogout = $controllerSessao->renderizarFormularioLogout();
 
     <section id="servicos">
         <h2>Serviços</h2>
-        <p>Oferecemos uma ampla gama de serviços personalizados para atender às suas necessidades específicas. Nossos serviços incluem:</p>
         <ul style="list-style: none; padding-left: 0;">
             <li><strong>Eventos de Lançamento:</strong> Desde grandes lançamentos de produtos até eventos exclusivos para a imprensa, ajudamos você a impressionar seus convidados.</li>
             <li><strong>Conferências e Seminários:</strong> Organizamos eventos educacionais e inspiradores que promovem o aprendizado e a colaboração.</li>
@@ -58,17 +54,15 @@ $formularioLogout = $controllerSessao->renderizarFormularioLogout();
 
     <section id="portfolio">
         <h2>Portfolio</h2>
-        <p>Confira alguns dos eventos corporativos que organizamos:</p>
         <div class="gallery">
-            <img src="../view/imgs/GettyImages-858790856.jpg" alt="Evento 1" class="event-image">
-            <img src="../view/imgs/producao-de-eventos.jpg" alt="Evento 2" class="event-image">
-            <img src="../view/imgs/sEGURO-eVENTOS-1.webp" alt="Evento 3" class="event-image">
+            <img src="/projetoWebServidorr/view/imgs/GettyImages-858790856.jpg" alt="Evento 1" class="event-image">
+            <img src="/projetoWebServidorr/view/imgs/producao-de-eventos.jpg" alt="Evento 2" class="event-image">
+            <img src="/projetoWebServidorr/view/imgs/sEGURO-eVENTOS-1.webp" alt="Evento 3" class="event-image">
         </div>  
     </section>
 
     <section id="contato">
         <h2>Contato</h2>
-        <p>Entre em contato conosco para discutir suas necessidades de evento corporativo. Estamos aqui para ajudar!</p>
         <div class="contact-form">
             <form action="processar_formulario.php" method="post">
                 <input type="text" name="nome" placeholder="Seu Nome" required><br>

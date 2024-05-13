@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /projetoWebServidorr/
+
+RewriteCond %{THE_REQUEST} \s/+(view/([^/]+)_view\.html?) [NC]
+RewriteRule ^ %1 [R=302,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^mundomagicoeventos/?$ view/index_view.php [NC,L]
+RewriteRule ^paginadelogin/?$ view/login_view.html [NC,L]
+RewriteRule ^paginadeproposta/?$ view/proposta_view.html [NC,L]
+RewriteRule ^paginadecadastro/?$ view/formulario_cadastro.html [NC,L]
+RewriteRule ^paginadeadmin/?$ view/pagina_adm_view.php [NC,L]
+
