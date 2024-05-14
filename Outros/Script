@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 -- Criação da tabela "proposta_evento" 
 CREATE TABLE IF NOT EXISTS proposta_evento (
     idevento INT(11) AUTO_INCREMENT PRIMARY KEY,
+    nome_evento VARCHAR (100),
     desc_evento VARCHAR(200),
     data_evento DATE,
     local_evento VARCHAR(45),
