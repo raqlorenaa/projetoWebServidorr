@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +23,7 @@
 
         h1 {
             text-align: center;
+            margin-bottom: 20px;
         }
 
         label {
@@ -55,59 +55,33 @@
             background-color: #45a049;
         }
 
-        
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .error {
+            color: red;
+            margin-top: 10px;
         }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-
     </style>
 </head>
-
 <body>
-    <header>
-        <h1>Eventos</h1>
+<div class="container">
+    <h1>Cadastro de Usuário</h1>
+    <?php if (isset($error)): ?>
+        <div class="error"><?php echo $error; ?></div>
+    <?php endif; ?>
+    <form action="/register" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
 
-    </header>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
 
-    <div class="container">
-        <h1>Cadastro de Usuário</h1>
-        <form action="cadastrarusuario.php" method="post">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
+        <label for="username">Nome de usuário:</label>
+        <input type="text" id="username" name="username" required>
 
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
 
-            <label for="username">Nome de usuário:</label>
-            <input type="text" id="username" name="username" required>
-
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
-
-            <input type="submit" value="Cadastrar">
-        </form>
-    </div>
-
-    <footer>
-        <p>&copy;Todos os direitos reservados.</p>
-    </footer>
+        <input type="submit" value="Cadastrar">
+    </form>
+</div>
 </body>
-
 </html>
