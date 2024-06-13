@@ -12,17 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Eventos', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('eventoId');
-            $table->unsignedBigInteger('user_id'); 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->decimal('orcamento',10,2);
-            $table->string('nome_evento', 100);
-            $table->string('desc_evento', 200);
+            $table->id(); 
+            $table->unsignedBigInteger('user_id');
+            $table->decimal('orcamento', 8, 2);
+            $table->string('nome_evento');
+            $table->text('desc_evento');
             $table->date('data_evento');
-            $table->string('local_evento', 45);
-            $table->string('info_contato', 100);
-            $table->enum('status_proposta', ['esperando análise', 'rejeitado', 'em contato']);
+            $table->string('local_evento');
+            $table->string('info_contato');
+            $table->string('status_proposta');
             $table->timestamps();
         });
     }

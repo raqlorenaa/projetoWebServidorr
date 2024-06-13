@@ -12,7 +12,6 @@ class Eventos extends Model
     protected $table = 'eventos';
 
     protected $fillable = [
-        'eventoId',
         'user_id',
         'orcamento',
         'nome_evento',
@@ -20,6 +19,6 @@ class Eventos extends Model
         'data_evento',
         'local_evento',
         'info_contato',
-        'status_proposta',
+        'status_proposta',  
     ];
 }
